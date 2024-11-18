@@ -10,7 +10,16 @@ import 'you_tube_p_d_f_model.dart';
 export 'you_tube_p_d_f_model.dart';
 
 class YouTubePDFWidget extends StatefulWidget {
-  const YouTubePDFWidget({super.key});
+  const YouTubePDFWidget({
+    super.key,
+    required this.materialID,
+    int? materialType,
+    required this.url,
+  }) : this.materialType = materialType ?? 1;
+
+  final int? materialID;
+  final int materialType;
+  final String? url;
 
   @override
   State<YouTubePDFWidget> createState() => _YouTubePDFWidgetState();
@@ -67,20 +76,22 @@ class _YouTubePDFWidgetState extends State<YouTubePDFWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                FlutterFlowYoutubePlayer(
-                  url: 'https://www.youtube.com/watch?v=d_qvLDhkg00',
-                  autoPlay: false,
-                  looping: true,
-                  mute: false,
-                  showControls: true,
-                  showFullScreen: true,
-                  strictRelatedVideos: true,
-                ),
-                FlutterFlowPdfViewer(
-                  networkPath: 'http://www.pdf995.com/samples/pdf.pdf',
-                  height: 300.0,
-                  horizontalScroll: false,
-                ),
+                if (widget!.materialType == 1)
+                  FlutterFlowYoutubePlayer(
+                    url: '${widget!.url}',
+                    autoPlay: false,
+                    looping: true,
+                    mute: false,
+                    showControls: true,
+                    showFullScreen: true,
+                    strictRelatedVideos: true,
+                  ),
+                if (widget!.materialType == 2)
+                  FlutterFlowPdfViewer(
+                    networkPath: widget!.url!,
+                    height: 300.0,
+                    horizontalScroll: false,
+                  ),
               ],
             ),
           ),

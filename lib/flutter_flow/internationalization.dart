@@ -369,52 +369,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Materials
   {
-    'h6wcrd8z': {
-      'en': 'Week 1 - ',
-      'ja': '第1週 -',
-      'zh_Hans': '第一周 -',
-    },
-    'ftefzsno': {
-      'en': 'Weekly task',
-      'ja': '毎週のタスク',
-      'zh_Hans': '每周任务',
-    },
-    'l8qzbrgt': {
-      'en': 'After',
-      'ja': '後',
-      'zh_Hans': '后',
-    },
-    'mrl9h6b5': {
-      'en': 'Tuesday, 10:00pm',
-      'ja': '火曜日、午後10時',
-      'zh_Hans': '星期二晚上 10:00',
-    },
     'cnp4cdvt': {
-      'en': 'Read',
-      'ja': '読む',
-      'zh_Hans': '读',
-    },
-    'zyu7eypw': {
-      'en': 'Week 2 - ',
-      'ja': '第2週 -',
-      'zh_Hans': '第 2 周 -',
-    },
-    'wssvedly': {
-      'en': 'To learn something.',
-      'ja': '何かを学ぶため。',
-      'zh_Hans': '学习一些东西。',
-    },
-    'cw372q4v': {
-      'en': 'After',
-      'ja': '後',
-      'zh_Hans': '后',
-    },
-    'gb4d9wy5': {
-      'en': 'Tuesday, 11:00pm',
-      'ja': '火曜日、午後11時',
-      'zh_Hans': '星期二晚上 11:00',
-    },
-    'j54y6rai': {
       'en': 'Read',
       'ja': '読む',
       'zh_Hans': '读',
@@ -425,49 +380,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '课程材料',
     },
     '4cz3i7yn': {
-      'en': 'Home',
-      'ja': '家',
-      'zh_Hans': '家',
-    },
-  },
-  // Overview
-  {
-    'uae2xcf1': {
-      'en': 'Introduction',
-      'ja': '導入',
-      'zh_Hans': '介绍',
-    },
-    'ayq9cw2k': {
-      'en': 'aaaaa',
-      'ja': 'ああああ',
-      'zh_Hans': '啊啊啊啊',
-    },
-    'vfaaon7s': {
-      'en': 'Read',
-      'ja': '読む',
-      'zh_Hans': '读',
-    },
-    'p73u73vn': {
-      'en': 'Course Outline',
-      'ja': 'コース概要',
-      'zh_Hans': '课程大纲',
-    },
-    'maeuqghs': {
-      'en': 'bbbbbb',
-      'ja': 'bbbbbb',
-      'zh_Hans': 'bbbbbb',
-    },
-    'owsqf6v5': {
-      'en': 'Read',
-      'ja': '読む',
-      'zh_Hans': '读',
-    },
-    '2n094hh7': {
-      'en': 'Course Overview',
-      'ja': 'コース概要',
-      'zh_Hans': '课程概述',
-    },
-    'gvf6wkj3': {
       'en': 'Home',
       'ja': '家',
       'zh_Hans': '家',
@@ -778,19 +690,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '您的电子邮件地址...',
     },
     '0u35dval': {
-      'en': 'Enter your answer...',
-      'ja': 'メールアドレスを入力してください...',
-      'zh_Hans': '输入您的电子邮件...',
-    },
-  },
-  // QuestionCopy
-  {
-    '3j2bs1rh': {
-      'en': 'Your Answer',
-      'ja': 'あなたのメールアドレス...',
-      'zh_Hans': '您的电子邮件地址...',
-    },
-    '91mhqgpk': {
       'en': 'Enter your answer...',
       'ja': 'メールアドレスを入力してください...',
       'zh_Hans': '输入您的电子邮件...',

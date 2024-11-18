@@ -7,7 +7,6 @@ export '/course/course_widget.dart' show CourseWidget;
 export '/account/send_success/send_success_widget.dart' show SendSuccessWidget;
 export '/assignments/assignments_widget.dart' show AssignmentsWidget;
 export '/materials/materials_widget.dart' show MaterialsWidget;
-export '/overview/overview_widget.dart' show OverviewWidget;
 export '/you_tube_p_d_f/you_tube_p_d_f_widget.dart' show YouTubePDFWidget;
 export '/profile/profile_widget.dart' show ProfileWidget;
 export '/quiz_score/quiz_score_widget.dart' show QuizScoreWidget;

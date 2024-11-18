@@ -14,7 +14,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start API Group Code
 
 class ApiGroup {
-  static String getBaseUrl() => 'http://82.152.142.33:5003';
+  static String getBaseUrl() => 'http://82.152.142.33:4000';
   static Map<String, String> headers = {};
   static LoginCall loginCall = LoginCall();
   static GetUserCourseCall getUserCourseCall = GetUserCourseCall();
@@ -35,6 +35,8 @@ class ApiGroup {
   static GetQuizAnswerCall getQuizAnswerCall = GetQuizAnswerCall();
   static GetRewardsCall getRewardsCall = GetRewardsCall();
   static GetRewardCall getRewardCall = GetRewardCall();
+  static GetCourseMaterialsCall getCourseMaterialsCall =
+      GetCourseMaterialsCall();
 }
 
 class LoginCall {
@@ -385,6 +387,7 @@ class GetQuestionCall {
 class GetQuestionDetaiCall {
   Future<ApiCallResponse> call({
     int? questionID,
+    String? token = '',
   }) async {
     final baseUrl = ApiGroup.getBaseUrl();
 
@@ -392,7 +395,9 @@ class GetQuestionDetaiCall {
       callName: 'getQuestionDetai',
       apiUrl: '${baseUrl}/api/getQuestion/${questionID}',
       callType: ApiCallType.GET,
-      headers: {},
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
@@ -429,6 +434,7 @@ class GetQuestionDetaiCall {
 class GetQuestionsDetailCall {
   Future<ApiCallResponse> call({
     int? quizID,
+    String? token = '',
   }) async {
     final baseUrl = ApiGroup.getBaseUrl();
 
@@ -436,7 +442,9 @@ class GetQuestionsDetailCall {
       callName: 'getQuestionsDetail',
       apiUrl: '${baseUrl}/api/getQuestions/${quizID}',
       callType: ApiCallType.GET,
-      headers: {},
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
@@ -475,6 +483,7 @@ class SubmitQuizCall {
     int? userID,
     dynamic? answerJson,
     int? quizID,
+    String? token = '',
   }) async {
     final baseUrl = ApiGroup.getBaseUrl();
 
@@ -491,6 +500,7 @@ class SubmitQuizCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -528,6 +538,7 @@ class UploadQuestionAnswerCall {
     int? questionID,
     String? answer = '',
     int? quizID,
+    String? token = '',
   }) async {
     final baseUrl = ApiGroup.getBaseUrl();
 
@@ -544,6 +555,7 @@ class UploadQuestionAnswerCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -562,6 +574,7 @@ class GetQuizAnswerCall {
   Future<ApiCallResponse> call({
     int? userID,
     int? quizID,
+    String? token = '',
   }) async {
     final baseUrl = ApiGroup.getBaseUrl();
 
@@ -569,7 +582,9 @@ class GetQuizAnswerCall {
       callName: 'getQuizAnswer',
       apiUrl: '${baseUrl}/api/getUserQuizAnswers/${userID}/${quizID}',
       callType: ApiCallType.GET,
-      headers: {},
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
@@ -601,14 +616,18 @@ class GetQuizAnswerCall {
 }
 
 class GetRewardsCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? token = '',
+  }) async {
     final baseUrl = ApiGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'getRewards',
       apiUrl: '${baseUrl}/api/getRewards',
       callType: ApiCallType.GET,
-      headers: {},
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
@@ -623,6 +642,7 @@ class GetRewardsCall {
 class GetRewardCall {
   Future<ApiCallResponse> call({
     int? rewardID,
+    String? token = '',
   }) async {
     final baseUrl = ApiGroup.getBaseUrl();
 
@@ -630,7 +650,9 @@ class GetRewardCall {
       callName: 'getReward',
       apiUrl: '${baseUrl}/api/getReward/${rewardID}',
       callType: ApiCallType.GET,
-      headers: {},
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
@@ -640,6 +662,53 @@ class GetRewardCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class GetCourseMaterialsCall {
+  Future<ApiCallResponse> call({
+    int? courseID,
+    String? token = '',
+  }) async {
+    final baseUrl = ApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getCourseMaterials',
+      apiUrl: '${baseUrl}/api/getCourseMaterials/${courseID}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? materialID(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].MaterialID''',
+      ));
+  String? materialName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].MaterialName''',
+      ));
+  String? materialDescription(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[:].MaterialDescription''',
+      ));
+  String? materialLink(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].MaterialLink''',
+      ));
+  int? materialType(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].MaterialType''',
+      ));
 }
 
 /// End API Group Code

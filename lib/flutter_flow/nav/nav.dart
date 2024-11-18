@@ -122,6 +122,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Assignments',
           path: '/assignments',
+          requireAuth: true,
           builder: (context, params) => AssignmentsWidget(
             courseID: params.getParam(
               'courseID',
@@ -132,17 +133,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Materials',
           path: '/materials',
-          builder: (context, params) => MaterialsWidget(),
-        ),
-        FFRoute(
-          name: 'Overview',
-          path: '/overview',
-          builder: (context, params) => OverviewWidget(),
+          requireAuth: true,
+          builder: (context, params) => MaterialsWidget(
+            courseID: params.getParam(
+              'courseID',
+              ParamType.int,
+            ),
+          ),
         ),
         FFRoute(
           name: 'YouTubePDF',
-          path: '/youTubepdf_demo',
-          builder: (context, params) => YouTubePDFWidget(),
+          path: '/youTubepdf',
+          requireAuth: true,
+          builder: (context, params) => YouTubePDFWidget(
+            materialID: params.getParam(
+              'materialID',
+              ParamType.int,
+            ),
+            materialType: params.getParam(
+              'materialType',
+              ParamType.int,
+            ),
+            url: params.getParam(
+              'url',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'profile',
