@@ -14,3 +14,4 @@ export '/quiz/quiz_widget.dart' show QuizWidget;
 export '/rewards/rewards_widget.dart' show RewardsWidget;
 export '/reward_confirm/reward_confirm_widget.dart' show RewardConfirmWidget;
 export '/terms/terms_widget.dart' show TermsWidget;
+export '/leaderboard/leaderboard_widget.dart' show LeaderboardWidget;

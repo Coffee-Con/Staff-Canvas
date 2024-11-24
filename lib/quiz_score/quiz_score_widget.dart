@@ -13,11 +13,13 @@ class QuizScoreWidget extends StatefulWidget {
     super.key,
     int? submitID,
     int? score,
+    required this.courseID,
   })  : this.submitID = submitID ?? 1,
         this.score = score ?? 0;
 
   final int submitID;
   final int score;
+  final int? courseID;
 
   @override
   State<QuizScoreWidget> createState() => _QuizScoreWidgetState();
@@ -55,7 +57,7 @@ class _QuizScoreWidgetState extends State<QuizScoreWidget> {
           automaticallyImplyLeading: false,
           title: Text(
             FFLocalizations.of(context).getText(
-              '0y1qkncr' /* Daily Quiz */,
+              '0y1qkncr' /* Quiz Score */,
             ),
             style: FlutterFlowTheme.of(context).displaySmall.override(
                   fontFamily: 'Outfit',
@@ -103,18 +105,6 @@ class _QuizScoreWidgetState extends State<QuizScoreWidget> {
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'k6panmsv' /* More Random Description */,
-                            ),
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 0.0),
@@ -137,7 +127,15 @@ class _QuizScoreWidgetState extends State<QuizScoreWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('home');
+                          context.pushNamed(
+                            'Assignments',
+                            queryParameters: {
+                              'courseID': serializeParam(
+                                widget!.courseID,
+                                ParamType.int,
+                              ),
+                            }.withoutNulls,
+                          );
                         },
                         text: FFLocalizations.of(context).getText(
                           'sl1mjo58' /* Back */,

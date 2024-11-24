@@ -78,6 +78,7 @@ class _QuizWidgetState extends State<QuizWidget> {
                 child: FutureBuilder<ApiCallResponse>(
                   future: ApiGroup.getQuestionsDetailCall.call(
                     quizID: widget!.quizID,
+                    token: currentAuthenticationToken,
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
@@ -134,7 +135,10 @@ class _QuizWidgetState extends State<QuizWidget> {
                                   ),
                                   questionID: questionItem.questionID,
                                   quizID: widget!.quizID,
-                                  questionType: questionItem.questionType,
+                                  questionType: valueOrDefault<int>(
+                                    questionItem.questionType,
+                                    1,
+                                  ),
                                 ),
                               );
                             }),
@@ -158,6 +162,7 @@ class _QuizWidgetState extends State<QuizWidget> {
                         _model.answer = await ApiGroup.getQuizAnswerCall.call(
                           userID: currentUserData?.userID,
                           quizID: widget!.quizID,
+                          token: currentAuthenticationToken,
                         );
 
                         _model.apiResultl0x =
@@ -165,6 +170,7 @@ class _QuizWidgetState extends State<QuizWidget> {
                           userID: currentUserData?.userID,
                           quizID: widget!.quizID,
                           answerJson: (_model.answer?.jsonBody ?? ''),
+                          token: currentAuthenticationToken,
                         );
 
                         if ((_model.apiResultl0x?.succeeded ?? true)) {
@@ -183,6 +189,10 @@ class _QuizWidgetState extends State<QuizWidget> {
                                   (_model.apiResultl0x?.jsonBody ?? ''),
                                   r'''$.Score''',
                                 ),
+                                ParamType.int,
+                              ),
+                              'courseID': serializeParam(
+                                widget!.courseID,
                                 ParamType.int,
                               ),
                             }.withoutNulls,

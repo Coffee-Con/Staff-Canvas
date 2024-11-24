@@ -59,8 +59,9 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
       child: FutureBuilder<ApiCallResponse>(
-        future: ApiGroup.getQuestionDetaiCall.call(
+        future: ApiGroup.getQuestionDetailCall.call(
           questionID: widget!.questionID,
+          token: currentAuthenticationToken,
         ),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
@@ -77,7 +78,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
               ),
             );
           }
-          final containerGetQuestionDetaiResponse = snapshot.data!;
+          final containerGetQuestionDetailResponse = snapshot.data!;
 
           return Container(
             width: MediaQuery.sizeOf(context).width * 1.0,
@@ -110,7 +111,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                     Text(
                       valueOrDefault<String>(
                         getJsonField(
-                          containerGetQuestionDetaiResponse.jsonBody,
+                          containerGetQuestionDetailResponse.jsonBody,
                           r'''$.Question''',
                         )?.toString(),
                         '???',
@@ -126,7 +127,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                         alignment: AlignmentDirectional(-1.0, 0.0),
                         child: FlutterFlowChoiceChips(
                           options: (getJsonField(
-                            containerGetQuestionDetaiResponse.jsonBody,
+                            containerGetQuestionDetailResponse.jsonBody,
                             r'''$.Answer''',
                             true,
                           ) as List)
@@ -149,6 +150,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                               quizID: widget!.quizID,
                               questionID: widget!.questionID,
                               answer: _model.choiceChipsValue,
+                              token: currentAuthenticationToken,
                             );
 
                             safeSetState(() {});
@@ -215,6 +217,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                                   questionID: widget!.questionID,
                                   quizID: widget!.quizID,
                                   answer: _model.answerTextController.text,
+                                  token: currentAuthenticationToken,
                                 );
 
                                 safeSetState(() {});

@@ -14,7 +14,10 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start API Group Code
 
 class ApiGroup {
-  static String getBaseUrl() => 'http://82.152.142.33:4000';
+  static String getBaseUrl({
+    String? userToken = '',
+  }) =>
+      'http://82.152.142.33:4000';
   static Map<String, String> headers = {};
   static LoginCall loginCall = LoginCall();
   static GetUserCourseCall getUserCourseCall = GetUserCourseCall();
@@ -26,7 +29,7 @@ class ApiGroup {
   static GetUserCompletedQuizzesCall getUserCompletedQuizzesCall =
       GetUserCompletedQuizzesCall();
   static GetQuestionCall getQuestionCall = GetQuestionCall();
-  static GetQuestionDetaiCall getQuestionDetaiCall = GetQuestionDetaiCall();
+  static GetQuestionDetailCall getQuestionDetailCall = GetQuestionDetailCall();
   static GetQuestionsDetailCall getQuestionsDetailCall =
       GetQuestionsDetailCall();
   static SubmitQuizCall submitQuizCall = SubmitQuizCall();
@@ -43,8 +46,11 @@ class LoginCall {
   Future<ApiCallResponse> call({
     String? email = '',
     String? password = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -79,8 +85,11 @@ class LoginCall {
 class GetUserCourseCall {
   Future<ApiCallResponse> call({
     String? token = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'GetUserCourse',
@@ -117,8 +126,11 @@ class GetUserCourseCall {
 class UserInfoCall {
   Future<ApiCallResponse> call({
     String? token = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'UserInfo',
@@ -164,8 +176,12 @@ class UserInfoCall {
 }
 
 class CaptchaCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = ApiGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? userToken = '',
+  }) async {
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'captcha',
@@ -186,8 +202,11 @@ class CaptchaCall {
 class VerifyCaptchaCall {
   Future<ApiCallResponse> call({
     String? email = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -225,8 +244,11 @@ class GetUserUnCompletedQuizzesCall {
     String? token = '',
     int? courseID,
     int? userID,
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getUserUnCompletedQuizzes',
@@ -280,8 +302,11 @@ class GetUserCompletedQuizzesCall {
     String? token = '',
     int? courseID,
     int? userID,
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getUserCompletedQuizzes',
@@ -334,8 +359,11 @@ class GetQuestionCall {
   Future<ApiCallResponse> call({
     String? token = '',
     int? quizID,
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'GetQuestion',
@@ -384,15 +412,18 @@ class GetQuestionCall {
       );
 }
 
-class GetQuestionDetaiCall {
+class GetQuestionDetailCall {
   Future<ApiCallResponse> call({
     int? questionID,
     String? token = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
-      callName: 'getQuestionDetai',
+      callName: 'getQuestionDetail',
       apiUrl: '${baseUrl}/api/getQuestion/${questionID}',
       callType: ApiCallType.GET,
       headers: {
@@ -435,8 +466,11 @@ class GetQuestionsDetailCall {
   Future<ApiCallResponse> call({
     int? quizID,
     String? token = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getQuestionsDetail',
@@ -484,8 +518,11 @@ class SubmitQuizCall {
     dynamic? answerJson,
     int? quizID,
     String? token = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     final answer = _serializeJson(answerJson, true);
     final ffApiRequestBody = '''
@@ -539,8 +576,11 @@ class UploadQuestionAnswerCall {
     String? answer = '',
     int? quizID,
     String? token = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -575,8 +615,11 @@ class GetQuizAnswerCall {
     int? userID,
     int? quizID,
     String? token = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getQuizAnswer',
@@ -618,8 +661,11 @@ class GetQuizAnswerCall {
 class GetRewardsCall {
   Future<ApiCallResponse> call({
     String? token = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getRewards',
@@ -643,8 +689,11 @@ class GetRewardCall {
   Future<ApiCallResponse> call({
     int? rewardID,
     String? token = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getReward',
@@ -668,8 +717,11 @@ class GetCourseMaterialsCall {
   Future<ApiCallResponse> call({
     int? courseID,
     String? token = '',
+    String? userToken = '',
   }) async {
-    final baseUrl = ApiGroup.getBaseUrl();
+    final baseUrl = ApiGroup.getBaseUrl(
+      userToken: userToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getCourseMaterials',
@@ -712,6 +764,68 @@ class GetCourseMaterialsCall {
 }
 
 /// End API Group Code
+
+/// Start API logined Group Code
+
+class APILoginedGroup {
+  static String getBaseUrl({
+    String? token = '',
+  }) =>
+      'http://82.152.142.33:4000/api/';
+  static Map<String, String> headers = {
+    'Authorization': 'Bearer [token]',
+  };
+  static GetCourseQuizRankaCall getCourseQuizRankaCall =
+      GetCourseQuizRankaCall();
+}
+
+class GetCourseQuizRankaCall {
+  Future<ApiCallResponse> call({
+    int? courseID,
+    int? quizID,
+    String? token = '',
+  }) async {
+    final baseUrl = APILoginedGroup.getBaseUrl(
+      token: token,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getCourseQuizRanka',
+      apiUrl:
+          '${baseUrl}getCourseQuizRank?CourseID=${courseID}&QuizID=${quizID}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? userID(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].UserID''',
+      ));
+  int? score(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].Score''',
+      ));
+  String? submitTime(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].SubmitTime''',
+      ));
+  String? name(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].Name''',
+      ));
+}
+
+/// End API logined Group Code
 
 class ApiPagingParams {
   int nextPageNumber = 0;

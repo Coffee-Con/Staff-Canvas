@@ -437,145 +437,171 @@ class _AssignmentsWidgetState extends State<AssignmentsWidget>
                                     return Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 12.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFF1F5F8),
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                          border: Border.all(
-                                            color: Color(0xFFE0E3E7),
-                                            width: 2.0,
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'Leaderboard',
+                                            queryParameters: {
+                                              'courseID': serializeParam(
+                                                widget!.courseID,
+                                                ParamType.int,
+                                              ),
+                                              'quizID': serializeParam(
+                                                quizCompletedItem.quizID,
+                                                ParamType.int,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                        },
+                                        child: Container(
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFF1F5F8),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                            border: Border.all(
+                                              color: Color(0xFFE0E3E7),
+                                              width: 2.0,
+                                            ),
                                           ),
-                                        ),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(12.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                quizCompletedItem.quizName,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .headlineSmall
-                                                    .override(
-                                                      fontFamily: 'Outfit',
-                                                      color: Color(0xFF0F1113),
-                                                      fontSize: 20.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                      decoration: TextDecoration
-                                                          .lineThrough,
-                                                    ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  quizCompletedItem
-                                                      .quizDescription,
+                                          child: Padding(
+                                            padding: EdgeInsets.all(12.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  quizCompletedItem.quizName,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelMedium
+                                                      .headlineSmall
                                                       .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
+                                                        fontFamily: 'Outfit',
                                                         color:
-                                                            Color(0xFF57636C),
-                                                        fontSize: 14.0,
+                                                            Color(0xFF0F1113),
+                                                        fontSize: 20.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
-                                                            FontWeight.w500,
+                                                            FontWeight.normal,
                                                         decoration:
                                                             TextDecoration
                                                                 .lineThrough,
                                                       ),
                                                 ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  quizCompletedItem.score
-                                                      .toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
-                                                        color:
-                                                            Color(0xFF57636C),
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        decoration:
-                                                            TextDecoration
-                                                                .lineThrough,
-                                                      ),
-                                                ),
-                                              ),
-                                              Divider(
-                                                height: 24.0,
-                                                thickness: 1.0,
-                                                color: Color(0xFFE0E3E7),
-                                              ),
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(230.0,
-                                                                0.0, 0.0, 0.0),
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      height: 32.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFF67779),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(32.0),
-                                                      ),
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '0xye6b2g' /* Complete */,
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    quizCompletedItem
+                                                        .quizDescription,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          color:
+                                                              Color(0xFF57636C),
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .lineThrough,
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Plus Jakarta Sans',
-                                                              color: Color(
-                                                                  0xFF0F1113),
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    quizCompletedItem.score
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          color:
+                                                              Color(0xFF57636C),
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Divider(
+                                                  height: 24.0,
+                                                  thickness: 1.0,
+                                                  color: Color(0xFFE0E3E7),
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  230.0,
                                                                   0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        height: 32.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFF67779),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      32.0),
+                                                        ),
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '0xye6b2g' /* Complete */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF0F1113),
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),

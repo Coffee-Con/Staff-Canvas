@@ -140,7 +140,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    '4yf2upmf' /* Forgot/Change Password */,
+                    '4yf2upmf' /* ForgotChange Password */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Outfit',

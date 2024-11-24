@@ -1,3 +1,4 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -63,7 +64,9 @@ class _RewardsWidgetState extends State<RewardsWidget> {
         ),
         body: FutureBuilder<ApiCallResponse>(
           future: (_model.apiRequestCompleter ??= Completer<ApiCallResponse>()
-                ..complete(ApiGroup.getRewardsCall.call()))
+                ..complete(ApiGroup.getRewardsCall.call(
+                  token: currentAuthenticationToken,
+                )))
               .future,
           builder: (context, snapshot) {
             // Customize what your widget looks like when it's loading.
@@ -159,21 +162,6 @@ class _RewardsWidgetState extends State<RewardsWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 1.0, 1.0, 1.0),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(6.0),
-                                              child: Image.network(
-                                                'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80',
-                                                width: 80.0,
-                                                height: 80.0,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
                                           Expanded(
                                             child: Padding(
                                               padding: EdgeInsetsDirectional

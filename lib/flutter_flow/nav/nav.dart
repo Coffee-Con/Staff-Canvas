@@ -107,6 +107,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Course',
           path: '/course',
+          requireAuth: true,
           builder: (context, params) => CourseWidget(
             courseID: params.getParam(
               'courseID',
@@ -163,11 +164,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'profile',
           path: '/profile',
+          requireAuth: true,
           builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
           name: 'QuizScore',
           path: '/quizScore',
+          requireAuth: true,
           builder: (context, params) => QuizScoreWidget(
             submitID: params.getParam(
               'submitID',
@@ -175,6 +178,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             score: params.getParam(
               'score',
+              ParamType.int,
+            ),
+            courseID: params.getParam(
+              'courseID',
               ParamType.int,
             ),
           ),
@@ -201,6 +208,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Rewards',
           path: '/rewards',
+          requireAuth: true,
           builder: (context, params) => RewardsWidget(),
         ),
         FFRoute(
@@ -221,6 +229,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Terms',
           path: '/terms',
           builder: (context, params) => TermsWidget(),
+        ),
+        FFRoute(
+          name: 'Leaderboard',
+          path: '/leaderboard',
+          requireAuth: true,
+          builder: (context, params) => LeaderboardWidget(
+            courseID: params.getParam(
+              'courseID',
+              ParamType.int,
+            ),
+            quizID: params.getParam(
+              'quizID',
+              ParamType.int,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
