@@ -385,10 +385,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '家',
     },
   },
-  // YouTubePDF
+  // CourseMaterial
   {
     'uuosxsx6': {
-      'en': 'YouTube & PDF Demo',
+      'en': 'Course Material',
       'ja': 'YouTube & PDF デモ',
       'zh_Hans': 'YouTube 和 PDF 演示',
     },
@@ -650,11 +650,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Reward',
       'ja': '褒美',
       'zh_Hans': '报酬',
-    },
-    'n9adzvdc': {
-      'en': 'Report',
-      'ja': '報告',
-      'zh_Hans': '报告',
     },
     'lgiytwji': {
       'en': 'Settings',

@@ -3,12 +3,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/flutter_flow_youtube_player.dart';
-import 'you_tube_p_d_f_widget.dart' show YouTubePDFWidget;
+import 'course_material_widget.dart' show CourseMaterialWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class YouTubePDFModel extends FlutterFlowModel<YouTubePDFWidget> {
+class CourseMaterialModel extends FlutterFlowModel<CourseMaterialWidget> {
   @override
   void initState(BuildContext context) {}
 

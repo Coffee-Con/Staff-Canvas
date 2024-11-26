@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'question_model.dart';
@@ -101,7 +102,6 @@ class _QuestionWidgetState extends State<QuestionWidget> {
               padding: EdgeInsets.all(16.0),
               child: GestureDetector(
                 onScaleUpdate: (details) async {
-                  _model.selectedText = _model.choiceChipsValue!;
                   safeSetState(() {});
                 },
                 child: Column(
@@ -138,11 +138,6 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                           onChanged: (val) async {
                             safeSetState(() =>
                                 _model.choiceChipsValue = val?.firstOrNull);
-                            _model.selectedText = _model.choiceChipsValue!;
-                            _model.answer = <String, dynamic>{
-                              'QuestionID': widget!.questionID,
-                              'Answer': _model.choiceChipsValue,
-                            };
                             safeSetState(() {});
                             _model.apiResultfdh =
                                 await ApiGroup.uploadQuestionAnswerCall.call(
@@ -208,7 +203,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                             focusNode: _model.answerFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.answerTextController',
-                              Duration(milliseconds: 2000),
+                              Duration(milliseconds: 1000),
                               () async {
                                 _model.apiResultr7m = await ApiGroup
                                     .uploadQuestionAnswerCall

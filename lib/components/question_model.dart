@@ -7,16 +7,11 @@ import '/flutter_flow/form_field_controller.dart';
 import 'question_widget.dart' show QuestionWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class QuestionModel extends FlutterFlowModel<QuestionWidget> {
-  ///  Local state fields for this component.
-
-  String selectedText = 'null';
-
-  dynamic answer;
-
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for ChoiceChips widget.

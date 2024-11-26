@@ -182,7 +182,7 @@ class _MaterialsWidgetState extends State<MaterialsWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'YouTubePDF',
+                                        'CourseMaterial',
                                         queryParameters: {
                                           'materialID': serializeParam(
                                             materialsItem.materialID,
@@ -278,7 +278,7 @@ class _MaterialsWidgetState extends State<MaterialsWidget>
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       context.pushNamed(
-                                                        'YouTubePDF',
+                                                        'CourseMaterial',
                                                         queryParameters: {
                                                           'materialID':
                                                               serializeParam(

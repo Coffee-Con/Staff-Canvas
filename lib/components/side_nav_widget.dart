@@ -1,8 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -65,42 +63,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  if (responsiveVisibility(
-                    context: context,
-                    phone: false,
-                  ))
-                    Container(
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: Color(0x4D9489F5),
-                        borderRadius: BorderRadius.circular(12.0),
-                        border: Border.all(
-                          color: Color(0xFF6F61EF),
-                          width: 2.0,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(2.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: CachedNetworkImage(
-                            fadeInDuration: Duration(milliseconds: 500),
-                            fadeOutDuration: Duration(milliseconds: 500),
-                            imageUrl: valueOrDefault<String>(
-                              random_data.randomImageUrl(
-                                0,
-                                0,
-                              ),
-                              'https://instructure-uploads-apse2.s3.ap-southeast-2.amazonaws.com/account_198030000000000001/attachments/36809/uninewcastle.png',
-                            ),
-                            width: 44.0,
-                            height: 44.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
                   Expanded(
                     child: Padding(
                       padding:
@@ -274,65 +236,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       '9onzbacz' /* Reward */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF15161E),
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 200),
-                      curve: Curves.easeInOut,
-                      width: double.infinity,
-                      height: 44.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF1F4F8),
-                        borderRadius: BorderRadius.circular(12.0),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed('Rewards');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.work,
-                                color: Color(0xFF15161E),
-                                size: 24.0,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'n9adzvdc' /* Report */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium

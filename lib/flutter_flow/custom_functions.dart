@@ -12,10 +12,10 @@ import '/backend/schema/structs/index.dart';
 import '/auth/custom_auth/auth_util.dart';
 
 DateTime authTokenExpiration() {
-  /// 获取当前时间
+  /// get currentTime
   DateTime currentTime = DateTime.now();
 
-  /// 增加 7.5 小时
+  /// Add 7.5 hours
   DateTime updatedTime = currentTime.add(Duration(hours: 7, minutes: 30));
 
   return updatedTime;

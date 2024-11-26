@@ -6,11 +6,11 @@ import '/flutter_flow/flutter_flow_youtube_player.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'you_tube_p_d_f_model.dart';
-export 'you_tube_p_d_f_model.dart';
+import 'course_material_model.dart';
+export 'course_material_model.dart';
 
-class YouTubePDFWidget extends StatefulWidget {
-  const YouTubePDFWidget({
+class CourseMaterialWidget extends StatefulWidget {
+  const CourseMaterialWidget({
     super.key,
     required this.materialID,
     int? materialType,
@@ -22,18 +22,18 @@ class YouTubePDFWidget extends StatefulWidget {
   final String? url;
 
   @override
-  State<YouTubePDFWidget> createState() => _YouTubePDFWidgetState();
+  State<CourseMaterialWidget> createState() => _CourseMaterialWidgetState();
 }
 
-class _YouTubePDFWidgetState extends State<YouTubePDFWidget> {
-  late YouTubePDFModel _model;
+class _CourseMaterialWidgetState extends State<CourseMaterialWidget> {
+  late CourseMaterialModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => YouTubePDFModel());
+    _model = createModel(context, () => CourseMaterialModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -58,7 +58,7 @@ class _YouTubePDFWidgetState extends State<YouTubePDFWidget> {
             automaticallyImplyLeading: true,
             title: Text(
               FFLocalizations.of(context).getText(
-                'uuosxsx6' /* YouTube & PDF Demo */,
+                'uuosxsx6' /* Course Material */,
               ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Outfit',
@@ -89,7 +89,8 @@ class _YouTubePDFWidgetState extends State<YouTubePDFWidget> {
                 if (widget!.materialType == 2)
                   FlutterFlowPdfViewer(
                     networkPath: widget!.url!,
-                    height: 300.0,
+                    width: double.infinity,
+                    height: 532.0,
                     horizontalScroll: false,
                   ),
               ],

@@ -126,6 +126,7 @@ class _QuizWidgetState extends State<QuizWidget> {
                                   questionIndex,
                                 ),
                                 updateCallback: () => safeSetState(() {}),
+                                updateOnChange: true,
                                 child: QuestionWidget(
                                   key: Key(
                                     'Key66n_${getJsonField(

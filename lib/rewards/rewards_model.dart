@@ -15,6 +15,8 @@ class RewardsModel extends FlutterFlowModel<RewardsWidget> {
   ///  State fields for stateful widgets in this page.
 
   Completer<ApiCallResponse>? apiRequestCompleter;
+  // Stores action output result for [Backend Call - API (getUserPoint)] action in menuItem widget.
+  ApiCallResponse? point;
 
   @override
   void initState(BuildContext context) {}

@@ -126,19 +126,33 @@ class _RewardsWidgetState extends State<RewardsWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed(
-                                      'RewardConfirm',
-                                      queryParameters: {
-                                        'rewardID': serializeParam(
-                                          rewardsItem.rewardID,
-                                          ParamType.int,
-                                        ),
-                                        'rewardPoint': serializeParam(
-                                          rewardsItem.rewardPoint,
-                                          ParamType.int,
-                                        ),
-                                      }.withoutNulls,
+                                    _model.point = await APILoginedGroup
+                                        .getUserPointCall
+                                        .call(
+                                      userID: currentUserData?.userID,
+                                      token: currentAuthenticationToken,
                                     );
+
+                                    if (PointStruct.maybeFromMap(
+                                                (_model.point?.jsonBody ?? ''))!
+                                            .rewardPoint >
+                                        rewardsItem.rewardPoint) {
+                                      context.pushNamed(
+                                        'RewardConfirm',
+                                        queryParameters: {
+                                          'rewardID': serializeParam(
+                                            rewardsItem.rewardID,
+                                            ParamType.int,
+                                          ),
+                                          'rewardPoint': serializeParam(
+                                            rewardsItem.rewardPoint,
+                                            ParamType.int,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    }
+
+                                    safeSetState(() {});
                                   },
                                   child: Container(
                                     width: double.infinity,

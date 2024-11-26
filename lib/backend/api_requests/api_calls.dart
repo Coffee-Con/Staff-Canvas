@@ -17,7 +17,7 @@ class ApiGroup {
   static String getBaseUrl({
     String? userToken = '',
   }) =>
-      'http://82.152.142.33:4000';
+      'https://staffcanvas.xyz:4001';
   static Map<String, String> headers = {};
   static LoginCall loginCall = LoginCall();
   static GetUserCourseCall getUserCourseCall = GetUserCourseCall();
@@ -771,12 +771,13 @@ class APILoginedGroup {
   static String getBaseUrl({
     String? token = '',
   }) =>
-      'http://82.152.142.33:4000/api/';
+      'https://staffcanvas.xyz:4001/api/';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [token]',
   };
   static GetCourseQuizRankaCall getCourseQuizRankaCall =
       GetCourseQuizRankaCall();
+  static GetUserPointCall getUserPointCall = GetUserPointCall();
 }
 
 class GetCourseQuizRankaCall {
@@ -822,6 +823,42 @@ class GetCourseQuizRankaCall {
   String? name(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$[:].Name''',
+      ));
+}
+
+class GetUserPointCall {
+  Future<ApiCallResponse> call({
+    int? userID,
+    String? token = '',
+  }) async {
+    final baseUrl = APILoginedGroup.getBaseUrl(
+      token: token,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getUserPoint',
+      apiUrl: '${baseUrl}getUserPoint/${userID}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? userID(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.UserID''',
+      ));
+  int? rewardPoint(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.RewardPoint''',
       ));
 }
 

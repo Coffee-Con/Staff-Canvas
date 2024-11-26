@@ -143,10 +143,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'YouTubePDF',
-          path: '/youTubepdf',
+          name: 'CourseMaterial',
+          path: '/coursematerial',
           requireAuth: true,
-          builder: (context, params) => YouTubePDFWidget(
+          builder: (context, params) => CourseMaterialWidget(
             materialID: params.getParam(
               'materialID',
               ParamType.int,

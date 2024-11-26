@@ -705,53 +705,55 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                 Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          color: Color(0x1F000000),
-                          offset: Offset(
-                            0.0,
-                            2.0,
-                          ),
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(8.0),
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        width: 1.0,
-                      ),
+                  child: FutureBuilder<ApiCallResponse>(
+                    future: ApiGroup.getUserCourseCall.call(
+                      token: currentAuthenticationToken,
                     ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
-                      child: FutureBuilder<ApiCallResponse>(
-                        future: ApiGroup.getUserCourseCall.call(
-                          token: currentAuthenticationToken,
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
-                                ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
                               ),
-                            );
-                          }
-                          final columnGetUserCourseResponse = snapshot.data!;
+                            ),
+                          ),
+                        );
+                      }
+                      final containerGetUserCourseResponse = snapshot.data!;
 
-                          return Builder(
+                      return Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 4.0,
+                              color: Color(0x1F000000),
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              ),
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(8.0),
+                          border: Border.all(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            width: 1.0,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 12.0),
+                          child: Builder(
                             builder: (context) {
-                              final course = (columnGetUserCourseResponse
+                              final course = (containerGetUserCourseResponse
                                           .jsonBody
                                           .toList()
                                           .map<CourseStruct?>(
@@ -769,87 +771,88 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   final courseItem = course[courseIndex];
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 8.0, 16.0, 4.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 12.0, 12.0, 12.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                valueOrDefault<String>(
-                                                  courseItem.courseName,
-                                                  'CourseName',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'textOnPageLoadAnimation7']!),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 0.0),
-                                                child: Text(
+                                        12.0, 8.0, 16.0, 12.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'Course',
+                                          queryParameters: {
+                                            'courseID': serializeParam(
+                                              courseItem.courseID,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    4.0, 12.0, 12.0, 12.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
                                                   valueOrDefault<String>(
-                                                    courseItem
-                                                        .courseDescription,
-                                                    'CourseDescription',
+                                                    courseItem.courseName,
+                                                    'CourseName',
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelMedium
+                                                      .titleLarge
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
+                                                        fontFamily: 'Outfit',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ).animateOnPageLoad(animationsMap[
-                                                    'textOnPageLoadAnimation8']!),
-                                              ),
-                                            ],
+                                                    'textOnPageLoadAnimation7']!),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      courseItem
+                                                          .courseDescription,
+                                                      'CourseDescription',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'textOnPageLoadAnimation8']!),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Container(
-                                          width: 60.0,
-                                          height: 60.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            shape: BoxShape.circle,
-                                          ),
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'Course',
-                                                queryParameters: {
-                                                  'courseID': serializeParam(
-                                                    courseItem.courseID,
-                                                    ParamType.int,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
+                                          Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Card(
                                               clipBehavior:
                                                   Clip.antiAliasWithSaveLayer,
@@ -869,21 +872,21 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'containerOnPageLoadAnimation6']!),
-                                      ],
+                                          ).animateOnPageLoad(animationsMap[
+                                              'containerOnPageLoadAnimation6']!),
+                                        ],
+                                      ),
                                     ),
                                   );
                                 }),
                               );
                             },
-                          );
-                        },
-                      ),
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation5']!),
+                          ),
+                        ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation5']!);
+                    },
+                  ),
                 ),
               ],
             ),
