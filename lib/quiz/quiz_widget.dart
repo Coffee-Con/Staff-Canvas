@@ -119,20 +119,14 @@ class _QuizWidgetState extends State<QuizWidget> {
                               final questionItem = question[questionIndex];
                               return wrapWithModel(
                                 model: _model.questionModels.getModel(
-                                  getJsonField(
-                                    columnGetQuestionsDetailResponse.jsonBody,
-                                    r'''$.QuestionID''',
-                                  ).toString(),
+                                  questionItem.questionID.toString(),
                                   questionIndex,
                                 ),
                                 updateCallback: () => safeSetState(() {}),
                                 updateOnChange: true,
                                 child: QuestionWidget(
                                   key: Key(
-                                    'Key66n_${getJsonField(
-                                      columnGetQuestionsDetailResponse.jsonBody,
-                                      r'''$.QuestionID''',
-                                    ).toString()}',
+                                    'Key66n_${questionItem.questionID.toString()}',
                                   ),
                                   questionID: questionItem.questionID,
                                   quizID: widget!.quizID,
