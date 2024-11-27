@@ -1,4 +1,5 @@
 import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -373,8 +374,18 @@ class _RewardConfirmWidgetState extends State<RewardConfirmWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 30.0),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      _model.apiResulthf2 =
+                          await APILoginedGroup.redeemRewardsCall.call(
+                        token: currentAuthenticationToken,
+                        rewardID: widget!.rewardID,
+                      );
+
+                      if ((_model.apiResulthf2?.succeeded ?? true)) {
+                        context.pushNamed('RewardSuccess');
+                      }
+
+                      safeSetState(() {});
                     },
                     text: FFLocalizations.of(context).getText(
                       'xmuu82e2' /* Confirm */,

@@ -634,6 +634,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '所有参与者',
     },
   },
+  // RewardSuccess
+  {
+    'l57dduu0': {
+      'en': 'Reward Success',
+      'ja': '課題',
+      'zh_Hans': '作业',
+    },
+    'x799h7zq': {
+      'en': 'Home',
+      'ja': '家',
+      'zh_Hans': '家',
+    },
+  },
   // SideNav
   {
     'wugegxc2': {

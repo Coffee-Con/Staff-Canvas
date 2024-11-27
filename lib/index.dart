@@ -15,3 +15,4 @@ export '/rewards/rewards_widget.dart' show RewardsWidget;
 export '/reward_confirm/reward_confirm_widget.dart' show RewardConfirmWidget;
 export '/terms/terms_widget.dart' show TermsWidget;
 export '/leaderboard/leaderboard_widget.dart' show LeaderboardWidget;
+export '/reward_success/reward_success_widget.dart' show RewardSuccessWidget;

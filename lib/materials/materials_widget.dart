@@ -263,77 +263,82 @@ class _MaterialsWidgetState extends State<MaterialsWidget>
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
                                               children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          230.0, 0.0, 0.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      context.pushNamed(
-                                                        'CourseMaterial',
-                                                        queryParameters: {
-                                                          'materialID':
-                                                              serializeParam(
-                                                            materialsItem
-                                                                .materialID,
-                                                            ParamType.int,
-                                                          ),
-                                                          'materialType':
-                                                              serializeParam(
-                                                            materialsItem
-                                                                .materialType,
-                                                            ParamType.int,
-                                                          ),
-                                                          'url': serializeParam(
-                                                            materialsItem
-                                                                .materialLink,
-                                                            ParamType.String,
-                                                          ),
-                                                        }.withoutNulls,
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      height: 32.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFF81E1D7),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(32.0),
-                                                      ),
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'cnp4cdvt' /* Read */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Plus Jakarta Sans',
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
+                                                Flexible(
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        context.pushNamed(
+                                                          'CourseMaterial',
+                                                          queryParameters: {
+                                                            'materialID':
+                                                                serializeParam(
+                                                              materialsItem
+                                                                  .materialID,
+                                                              ParamType.int,
                                                             ),
+                                                            'materialType':
+                                                                serializeParam(
+                                                              materialsItem
+                                                                  .materialType,
+                                                              ParamType.int,
+                                                            ),
+                                                            'url':
+                                                                serializeParam(
+                                                              materialsItem
+                                                                  .materialLink,
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        height: 32.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFF81E1D7),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      32.0),
+                                                        ),
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'cnp4cdvt' /* Read */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),

@@ -778,6 +778,7 @@ class APILoginedGroup {
   static GetCourseQuizRankaCall getCourseQuizRankaCall =
       GetCourseQuizRankaCall();
   static GetUserPointCall getUserPointCall = GetUserPointCall();
+  static RedeemRewardsCall redeemRewardsCall = RedeemRewardsCall();
 }
 
 class GetCourseQuizRankaCall {
@@ -860,6 +861,34 @@ class GetUserPointCall {
         response,
         r'''$.RewardPoint''',
       ));
+}
+
+class RedeemRewardsCall {
+  Future<ApiCallResponse> call({
+    int? rewardID,
+    String? token = '',
+  }) async {
+    final baseUrl = APILoginedGroup.getBaseUrl(
+      token: token,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Redeem Rewards',
+      apiUrl: '${baseUrl}redeemReward/${rewardID}',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 /// End API logined Group Code
