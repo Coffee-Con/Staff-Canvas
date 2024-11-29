@@ -80,7 +80,23 @@ class _RewardSuccessWidgetState extends State<RewardSuccessWidget> {
             top: true,
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              children: [],
+              children: [
+                Flexible(
+                  child: Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        'hr3j1nk6' /* Reawrd successful redemption! */,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            fontSize: 25.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

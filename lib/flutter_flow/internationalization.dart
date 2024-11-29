@@ -203,7 +203,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '4yf2upmf': {
       'en': 'Forgot/Change Password',
       'ja': 'パスワードを忘れた/変更する',
-      'zh_Hans': '忘记/更改密码',
+      'zh_Hans': '忘记/修改密码',
     },
     'i6c9xa8x': {
       'en':
@@ -389,8 +389,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'uuosxsx6': {
       'en': 'Course Material',
-      'ja': 'YouTube & PDF デモ',
-      'zh_Hans': 'YouTube 和 PDF 演示',
+      'ja': 'コース教材',
+      'zh_Hans': '课程材料',
     },
     '6tr5c37z': {
       'en': 'Home',
@@ -636,6 +636,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // RewardSuccess
   {
+    'hr3j1nk6': {
+      'en': 'Reawrd successful redemption!',
+      'ja': 'Reward の交換に成功しました!',
+      'zh_Hans': '獎勵兑现成功！',
+    },
     'l57dduu0': {
       'en': 'Reward Success',
       'ja': '課題',
@@ -657,12 +662,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'gz12a041': {
       'en': 'Home',
       'ja': '家',
-      'zh_Hans': '家',
+      'zh_Hans': '主页',
     },
     '9onzbacz': {
       'en': 'Reward',
       'ja': '褒美',
-      'zh_Hans': '报酬',
+      'zh_Hans': '奖品',
     },
     'lgiytwji': {
       'en': 'Settings',
@@ -689,18 +694,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'toerf750': {
       'en': 'B',
-      'ja': 'B',
-      'zh_Hans': '乙',
+      'ja': '',
+      'zh_Hans': '',
     },
     '13u7unx9': {
       'en': 'C',
-      'ja': 'Ｃ',
-      'zh_Hans': '碳',
+      'ja': '',
+      'zh_Hans': '',
     },
     '15u3r026': {
       'en': 'D',
-      'ja': 'だ',
-      'zh_Hans': '德',
+      'ja': '',
+      'zh_Hans': '',
     },
     'nh59tks5': {
       'en': '',

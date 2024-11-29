@@ -1,4 +1,4 @@
-package com.staffcanvas
+package xyz.staffcanvas
 
 import io.flutter.embedding.android.FlutterActivity
 
