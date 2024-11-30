@@ -250,21 +250,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ja': '新しい学習',
       'zh_Hans': '新学习',
     },
-    '1qpq8g6i': {
-      'en': '2',
-      'ja': '2',
-      'zh_Hans': '2',
-    },
-    '7t0h60z9': {
-      'en': 'New Modules',
-      'ja': '新しいモジュール',
-      'zh_Hans': '新模块',
-    },
-    '3ob0h4a9': {
-      'en': '1',
-      'ja': '1',
-      'zh_Hans': '1',
-    },
     '9mc36o2j': {
       'en': 'Projects',
       'ja': 'プロジェクト',
