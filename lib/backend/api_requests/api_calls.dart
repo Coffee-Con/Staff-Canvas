@@ -210,7 +210,7 @@ class VerifyCaptchaCall {
 
     final ffApiRequestBody = '''
 {
-  "emial": "${email}"
+  "email": "${email}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'verifyCaptcha',
