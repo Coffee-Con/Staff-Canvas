@@ -7,8 +7,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import '/backend/schema/structs/index.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -137,33 +135,6 @@ class _CourseWidgetState extends State<CourseWidget>
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Color(0xFF827AE1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40.0),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(2.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(40.0),
-                          child: CachedNetworkImage(
-                            fadeInDuration: Duration(milliseconds: 500),
-                            fadeOutDuration: Duration(milliseconds: 500),
-                            imageUrl: valueOrDefault<String>(
-                              random_data.randomImageUrl(
-                                0,
-                                0,
-                              ),
-                              'https://instructure-uploads-apse2.s3.ap-southeast-2.amazonaws.com/account_198030000000000001/attachments/36809/uninewcastle.png',
-                            ),
-                            width: 40.0,
-                            height: 40.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
                     Text(
                       valueOrDefault<String>(
                         currentUserData?.name,

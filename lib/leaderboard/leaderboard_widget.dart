@@ -67,12 +67,8 @@ class _LeaderboardWidgetState extends State<LeaderboardWidget> {
             ),
             onPressed: () async {
               context.pushNamed(
-                'Quiz',
+                'Assignments',
                 queryParameters: {
-                  'quizID': serializeParam(
-                    widget!.quizID,
-                    ParamType.int,
-                  ),
                   'courseID': serializeParam(
                     widget!.courseID,
                     ParamType.int,
