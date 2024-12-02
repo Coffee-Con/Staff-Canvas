@@ -622,7 +622,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // RewardSuccess
   {
     'hr3j1nk6': {
-      'en': 'Reawrd successful redemption!',
+      'en': 'Reward successful redemption!',
       'ja': 'Reward の交換に成功しました!',
       'zh_Hans': '獎勵兑现成功！',
     },

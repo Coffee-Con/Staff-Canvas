@@ -53,8 +53,8 @@ class _TermsWidgetState extends State<TermsWidget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 24.0,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
+            onPressed: () async {
+              context.pushNamed('profile');
             },
           ),
           title: Text(

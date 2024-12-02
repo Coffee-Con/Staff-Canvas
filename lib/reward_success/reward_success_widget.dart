@@ -86,7 +86,7 @@ class _RewardSuccessWidgetState extends State<RewardSuccessWidget> {
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'hr3j1nk6' /* Reawrd successful redemption! */,
+                        'hr3j1nk6' /* Reward successful redemption! */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
